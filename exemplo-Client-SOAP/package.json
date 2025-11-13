@@ -1,0 +1,14 @@
+{
+  "name": "exemplo_client_soap",
+  "version": "1.0.0",
+  "description": "cliente do exemplo server SOAP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesse",
+  "license": "ISC",
+  "dependencies": {
+    "soap": "^1.6.0"
+  }
+}
