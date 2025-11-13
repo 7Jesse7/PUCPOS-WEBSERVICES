@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta CEP Correios</title>
+</head>
+<body>
+  <h2>Consultar Endereço pelo CEP</h2>
+  <form id="cepForm">
+    <input type="text" name="cep" placeholder="Digite o CEP" required />
+    <button type="submit">Consultar</button>
+  </form>
+
+  <pre id="resultado"></pre>
+
+  <script>
+    document.getElementById('cepForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const cep = e.target.cep.value;
+
+      const response = await fetch('/consulta-cep', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cep })
+      });
+
+      const data = await response.json();
+      document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
